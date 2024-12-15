@@ -1,0 +1,66 @@
+//complex number
+import java.util.Scanner;
+
+class Complex{
+	double real,img;
+	
+	Complex(){
+		this.real=0;
+		this.img=0;
+		
+	}
+	Complex(double real,double img){
+		this.real=real;
+		this.img=img;
+	}
+	static void addition(Complex complex1,Complex complex2) {
+		Complex complex3 = new Complex(0,0);
+		complex3.real=complex1.real+complex2.real;
+		complex3.img=complex1.img+complex2.img;
+		System.out.println("addition is "+complex3.real+"+"+complex3.img+"i");
+	}
+	
+	static void Subtraction(Complex complex1,Complex complex2) {
+		Complex complex3 = new Complex(0,0);
+		complex3.real=complex1.real-complex2.real;
+		complex3.img=complex1.img-complex2.img;
+		System.out.println("subtraction is "+complex3.real+"+"+complex3.img+"i");
+	}
+	
+	static void Multiplication(Complex complex1,Complex complex2) {
+		Complex complex3 = new Complex(0,0);
+		complex3.real=(complex1.real*complex2.real)-(complex1.img*complex2.img);
+		complex3.img=(complex1.real*complex2.img)+(complex1.img*complex2.real);
+		System.out.println("multiplication is "+complex3.real+"+"+complex3.img+"i");
+	}
+	
+	static void Division(Complex complex1, Complex complex2) {
+	    Complex complex3 = new Complex(0, 0);
+	    double denominator = complex2.real * complex2.real + complex2.img * complex2.img;
+	    complex3.real = (complex1.real * complex2.real + complex1.img * complex2.img) / denominator;
+	    complex3.img = (complex1.img * complex2.real - complex1.real * complex2.img) / denominator;
+	    System.out.println("Division is: " + complex3.real + " + " + complex3.img + "i");
+	}
+
+}
+class Main{
+public static void main (String[]args) {
+	Complex complex1 = new Complex(10,20);
+	Complex complex2 = new Complex(30,40);
+	int ch;
+	System.out.println("enter your choice \n1.addition \n2.subtracation \n3.multiplication \n 4.division");
+	Scanner sc = new Scanner(System.in);
+	ch=sc.nextInt();
+	switch(ch) {
+	case 1:Complex.addition(complex1,complex2);
+		break;
+	case 2:Complex.Subtraction(complex1, complex2);	
+		break;
+	case 3:Complex.Multiplication(complex1, complex2);
+		break;
+	case 4:Complex.Division(complex1, complex2);
+		break;
+	
+	}
+}
+}

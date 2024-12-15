@@ -1,0 +1,77 @@
+//Generic
+import java.util.*;
+
+public class SimpleCounter {
+
+    public static List<Integer> getEvenNumbers(List<Integer> numbers) {
+        List<Integer> evenNumbers = new ArrayList<>();
+        for (int number : numbers) {
+            if (number % 2 == 0) {
+                evenNumbers.add(number);
+            }
+        }
+        return evenNumbers;
+    }
+
+    public static List<Integer> getOddNumbers(List<Integer> numbers) {
+        List<Integer> oddNumbers = new ArrayList<>();
+        for (int number : numbers) {
+            if (number % 2 != 0) {
+                oddNumbers.add(number);
+            }
+        }
+        return oddNumbers;
+    }
+
+    public static List<Integer> getPrimeNumbers(List<Integer> numbers) {
+        List<Integer> primeNumbers = new ArrayList<>();
+        for (int number : numbers) {
+            if (isPrime(number)) {
+                primeNumbers.add(number);
+            }
+        }
+        return primeNumbers;
+    }
+
+    public static boolean isPrime(int number) {
+        if (number <= 1) {
+            return false;
+        }
+        for (int i = 2; i <= Math.sqrt(number); i++) {
+            if (number % i == 0) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public static List<String> getPalindromes(List<String> words) {
+        List<String> palindromes = new ArrayList<>();
+        for (String word : words) {
+            if (isPalindrome(word)) {
+                palindromes.add(word);
+            }
+        }
+        return palindromes;
+    }
+
+    public static boolean isPalindrome(String str) {
+        String reversed = new StringBuilder(str).reverse().toString();
+        return str.equals(reversed);
+    }
+
+    public static void main(String[] args) {
+        List<Integer> numbers = Arrays.asList(2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15);
+        List<String> words = Arrays.asList("madam", "racecar", "hello", "world", "level", "java");
+
+        List<Integer> evenNumbers = getEvenNumbers(numbers);
+        List<Integer> oddNumbers = getOddNumbers(numbers);
+        List<Integer> primeNumbers = getPrimeNumbers(numbers);
+        List<String> palindromes = getPalindromes(words);
+
+        System.out.println("Even numbers count: " + evenNumbers.size() + ", List: " + evenNumbers);
+        System.out.println("Odd numbers count: " + oddNumbers.size() + ", List: " + oddNumbers);
+        System.out.println("Prime numbers count: " + primeNumbers.size() + ", List: " + primeNumbers);
+        System.out.println("Palindromes count: " + palindromes.size() + ", List: " + palindromes);
+    }
+}

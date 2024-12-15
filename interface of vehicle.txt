@@ -1,0 +1,101 @@
+//interface of vehicle
+
+
+interface Vehicle {
+    void changeGear(int newGear);
+    void speedUp(int increment);
+    void applyBrakes(int decrement);
+}
+
+class Bicycle implements Vehicle {
+    int speed;
+    int gear;
+
+    @Override
+    public void changeGear(int newGear) {
+        gear = newGear;
+        System.out.println("Bicycle gear changed to: " + gear);
+    }
+
+    @Override
+    public void speedUp(int increment) {
+        speed += increment;
+        System.out.println("Bicycle speed increased to: " + speed);
+    }
+
+    @Override
+    public void applyBrakes(int decrement) {
+        speed -= decrement;
+        System.out.println("Bicycle speed decreased to: " + speed);
+    }
+}
+
+class Bike implements Vehicle {
+    int speed;
+    int gear;
+
+    @Override
+    public void changeGear(int newGear) {
+        gear = newGear;
+        System.out.println("Bike gear changed to: " + gear);
+    }
+
+    @Override
+    public void speedUp(int increment) {
+        speed += increment;
+        System.out.println("Bike speed increased to: " + speed);
+    }
+
+    @Override
+    public void applyBrakes(int decrement) {
+        speed -= decrement;
+        System.out.println("Bike speed decreased to: " + speed);
+    }
+}
+
+class Car implements Vehicle {
+    int speed;
+    int gear;
+
+    @Override
+    public void changeGear(int newGear) {
+        gear = newGear;
+        System.out.println("Car gear changed to: " + gear);
+    }
+
+    @Override
+    public void speedUp(int increment) {
+        speed += increment;
+        System.out.println("Car speed increased to: " + speed);
+    }
+
+    @Override
+    public void applyBrakes(int decrement) {
+        speed -= decrement;
+        System.out.println("Car speed decreased to: " + speed);
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Bicycle bicycle = new Bicycle();
+        Bike bike = new Bike();
+        Car car = new Car();
+
+        System.out.println("Bicycle:");
+        bicycle.changeGear(2);
+        bicycle.speedUp(10);
+        bicycle.applyBrakes(3);
+
+        System.out.println("\nBike:");
+        bike.changeGear(3);
+        bike.speedUp(20);
+        bike.applyBrakes(5);
+
+        System.out.println("\nCar:");
+        car.changeGear(4);
+        car.speedUp(30);
+        car.applyBrakes(10);
+    }
+}
+

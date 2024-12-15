@@ -1,0 +1,76 @@
+//book(polymorphism)
+
+
+
+
+abstract class Publication{
+	String title;
+	int price;
+	int copies;
+	
+	public Publication(String title,int price,int copies) {
+		this.title=title;
+		this.price=price;
+		this.copies=copies;
+	}
+	void saleCopy() {
+		System.out.println("Sold copy of="+title);
+	}
+	abstract void display();
+}
+
+class Book extends Publication {
+	String author;
+	public Book(String title,int price,int copies,String author){
+		super( title, price, copies);
+		this.author=author;
+	}
+		
+	void display() {
+		System.out.println("Book "+title+" by author "+author+", price "+price+", copies "+copies);
+	}
+	void orderCopies(int quantity) {
+		copies+=quantity;
+	}
+	int totalSales() {
+		return copies*price;
+	}
+	}
+	
+
+
+class Mazagine extends Publication{
+	String Currentissue;
+	
+	public Mazagine(String title,int price,int copies,String Currentissue) {
+		super( title, price, copies);
+		this.Currentissue=Currentissue;
+	}
+	void  display() {
+		System.out.println("Book "+title+" Current issue "+Currentissue+", price "+price+", copies "+copies);
+	}
+	void RecieveIssue(int quantity) {
+		copies+=quantity;
+	}
+	int totalSale() {
+		return copies*price;
+	}
+		
+}
+
+class Main{
+	public static void main(String[] args) {
+		Book B=new Book("java program",1225,5,"nagaraj");
+		Mazagine M=new Mazagine("Tech weekly",500,10,"April 2024");
+		
+		B.display();
+		M.display();
+		
+		B.saleCopy();
+		M.saleCopy();
+		
+		System.out.println("total sales of Book "+B.totalSales());
+		System.out.println("total sales of Mazagines "+M.totalSale());
+		System.out.println("total sales of Publication "+(B.totalSales()+M.totalSale()));
+	}
+}
